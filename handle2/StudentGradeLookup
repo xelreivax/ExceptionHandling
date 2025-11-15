@@ -1,0 +1,34 @@
+package handle2;
+
+import javax.swing.JOptionPane;
+
+public class StudentGradeLookup {
+
+    public static void main(String[] args) {
+
+        int[] grades = {90, 85, 78, 92, 88}; 
+        
+        StringBuilder output = new StringBuilder();
+
+        try {
+            String input = JOptionPane.showInputDialog("Enter student index (0-4):");
+            int index = Integer.parseInt(input);
+
+            output.append("Enter student index (0-4): ").append(index).append("\n");
+
+            int grade = grades[index];
+            output.append("Grade: ").append(grade);
+
+        } catch (NumberFormatException e) {
+            output.append("Error: Invalid input! Please enter a number.\n");
+
+        } catch (ArrayIndexOutOfBoundsException e) {
+            output.append("Error: Invalid student index!\n");
+
+        } catch (Exception e) {
+            output.append("Error: ").append(e.getMessage()).append("\n");
+        }
+
+        JOptionPane.showMessageDialog(null, output.toString());
+    }
+}
