@@ -6,26 +6,31 @@ public class MainDivisionProgram {
 
     public static void main(String[] args) {
 
+        StringBuilder output = new StringBuilder();
+
         try {
-            int num1 = InputHandler.getInteger("Enter the first integer:");
-            int num2 = InputHandler.getInteger("Enter the second integer:");
+            int numerator = InputHandler.getInteger("Enter numerator:");
+            output.append("Enter numerator: ").append(numerator).append("\n");
 
-            double result = DivisionCalculator.divide(num1, num2);
+            int denominator = InputHandler.getInteger("Enter denominator:");
+            output.append("Enter denominator: ").append(denominator).append("\n");
 
-            JOptionPane.showMessageDialog(null,
-                "Result: " + num1 + " / " + num2 + " = " + result);
+            double result = DivisionCalculator.divide(numerator, denominator);
+
+            output.append("Result: ").append(result).append("\n");
 
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null,
-                "Invalid Input! Please enter integer values only.");
+            output.append("Error: Invalid input! Only integers allowed.\n");
 
         } catch (ArithmeticException e) {
-            JOptionPane.showMessageDialog(null,
-                "Error: " + e.getMessage());
+            output.append("Error: ").append(e.getMessage()).append("\n");
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,
-                "Unexpected Error: " + e.getMessage());
+            output.append("Error: ").append(e.getMessage()).append("\n");
         }
+
+        output.append("Computation Complete");
+
+        JOptionPane.showMessageDialog(null, output.toString());
     }
 }

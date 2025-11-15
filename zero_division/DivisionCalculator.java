@@ -1,13 +1,14 @@
 package zero_division;
 
+
 public class DivisionCalculator {
 
-    public static double divide(int a, int b) throws ArithmeticException {
+    public static double divide(int numerator, int denominator) throws ArithmeticException {
 
-        if (a == 0 || b == 0) {
-            throw new ArithmeticException("You cannot divide by zero!");
+        if (numerator == 0 || denominator == 0) {
+            throw new ArithmeticException("Division by zero!");
         }
 
-        return (double) a / b;
+        return (double) numerator / denominator;
     }
 }
